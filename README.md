@@ -1,27 +1,21 @@
-adiciona projeto de previsao de inadimplencia em cartoes de credito
+ # 💳 Projeto 01 - Concessão de Cartões de Crédito (CRISP-DM)
 
-- Implementa fluxo completo seguindo a metodologia CRISP-DM
-- Realiza analise exploratoria univariada e bivariada (idade e tempo de emprego)
-- Prepara dados categoricos com variaveis dummy
-- Treina e avalia modelo Random Forest ajustando hiperparametros (n_estimators)
+Projeto desenvolvido durante o curso **Profissão: Cientista de Dados (EBAC)** com o objetivo de construir uma análise exploratória e preditiva para avaliar o risco de inadimplência na concessão de cartões de crédito.
 
-- ## 🛠️ Tecnologias e Bibliotecas Utilizadas
+## 💡 Como elaborei este projeto
+
+Estruturei o desenvolvimento seguindo as etapas da metodologia **CRISP-DM**, partindo da compreensão do problema de negócio até a análise visual das variáveis que influenciam o risco de crédito:
+
+1. **Entendimento do Negócio e dos Dados:** Comecei mapeando o objetivo principal — identificar clientes com risco de atraso igual ou superior a 90 dias em 12 meses (`mau`) — e inspecionando o dicionário de dados e as 16 variáveis disponíveis na base (`demo01.csv`, com 16.650 registros).
+2. **Preparação do Ambiente:** Importei e organizei as bibliotecas essenciais para manipulação de dados, visualização e modelagem (`pandas`, `seaborn`, `matplotlib` e `scikit-learn`).
+3. **Análise Univariada:**
+   * Verifiquei a proporção da variável resposta (`mau`), identificando uma taxa base de aproximadamente **2,34% de inadimplentes**.
+   * Construí **gráficos de barras** para variáveis categóricas (`posse_de_veiculo` e `posse_de_imovel`) para entender o perfil patrimonial dos proponentes.
+   * Criei **histogramas** para variáveis contínuas (`tempo_emprego` e `idade`), realizando ajustes de escala (tratando valores negativos extremos em `tempo_emprego`) para melhorar a visualização da distribuição.
+4. **Análise Bivariada:** Segmentei variáveis numéricas em quartis (`pd.qcut`) para cruzar com a taxa média de inadimplência, avaliando visualmente como `idade` e `tempo_emprego` discriminam o risco de crédito ao longo das faixas.
+
+## 🛠️ Tecnologias Utilizadas
 * **Python 3**
-* **Pandas:** Manipulação e limpeza de dados.
-* **Seaborn & Matplotlib:** Visualização de dados e análise exploratória.
-* **Scikit-Learn:** Divisão de treino/teste, modelagem (*Random Forest*) e métricas de avaliação.
-
-## 📊 Etapas Desenvolvidas (CRISP-DM)
-1. **Entendimento do Negócio:** Definição do problema de risco de crédito e da variável resposta (`mau`).
-2. **Entendimento dos Dados:** 
-   * Análise univariada (distribuição da variável alvo, posse de imóvel, posse de veículo e histograma de idade).
-   * Análise bivariada avaliando a taxa de inadimplência por faixas de `idade` e `tempo_emprego`, identificando que clientes com menor tempo de emprego apresentam maior risco.
-3. **Preparação dos Dados:** Tratamento de valores anômalos em `tempo_emprego` e transformação de variáveis categóricas em variáveis *dummy* (`pd.get_dummies`).
-4. **Modelagem:** Treinamento do algoritmo `RandomForestClassifier`, testando diferentes quantidades de árvores (`n_estimators`) para otimizar o desempenho.
-5. **Avaliação:** Análise de acurácia (atingindo **~97,79%**) e matriz de confusão, incluindo uma simulação de impacto financeiro na aprovação/reprovação de crédito.
-6. **Implantação (Conceitual):** Estruturação de como o modelo atuaria em um motor de decisão de crédito.
-
-## 📈 Principais Conclusões
-* A base apresenta um forte desbalanceamento (cerca de 2,34% de inadimplentes).
-* Variáveis comportamentais e de estabilidade, como o **tempo de emprego**, mostraram forte poder de discriminação de risco na análise bivariada.
-* O ajuste no número de estimadores da *Random Forest* permitiu melhorar a 
+* **Pandas** (manipulação, agrupamento e discretização de dados)
+* **Matplotlib & Seaborn** (visualização univariada e bivariada)
+* **Scikit-Learn** (preparação para modelagem preditiva com Random Forest)
